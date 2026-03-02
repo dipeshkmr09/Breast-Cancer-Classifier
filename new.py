@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -18,8 +19,11 @@ st.set_page_config(page_title="Breast Cancer Classifier", page_icon="🎗️", l
 @st.cache_resource
 def load_and_train_models():
     # 1. Data Load & Clean
-    df = pd.read_csv(r"C:\Users\Dipesh\OneDrive\Desktop\AIML\data.csv")
-    
+    # load the csv relative to this script (deployment friendly)
+    base_dir = os.path.dirname(__file__)
+    csv_path = os.path.join(base_dir, "data.csv")
+    df = pd.read_csv(csv_path)
+
     # FIX: Drop columns that aren't features (ID and the empty last column)
     # We use .iloc to handle the "Unnamed: 32" column regardless of its name
     df = df.drop(columns=['id'], errors='ignore')

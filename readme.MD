@@ -53,7 +53,8 @@ Alternatively, create a `requirements.txt` with the above packages and run
 ## 📁 Data
 
 The application expects a CSV file named `data.csv` located in the root of the
-workspace. The file should be the [Breast Cancer Wisconsin (Diagnostic)
+workspace (i.e. alongside `new.py`). The code loads the dataset using a
+relative path so the project can be deployed without modifying the source. The file should be the [Breast Cancer Wisconsin (Diagnostic)
 dataset](https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29)
 obtained from the UCI Machine Learning Repository.
 
@@ -62,6 +63,28 @@ The code automatically drops the `id` column and any unnamed trailing column
 `_mean` in their names) for prediction.
 
 ---
+
+## ⚙️ Running the Application
+
+### 🔧 Deployment
+You can deploy the app to any host that supports Python web processes. Two
+common options are:
+
+1. **Streamlit Community Cloud** (formerly Streamlit Sharing):
+   - Push your repo (including `data.csv` and `requirements.txt`) to GitHub.
+   - Add an app entry pointing to `new.py`.
+   - The service installs the dependencies automatically.
+
+2. **Heroku / other PaaS**:
+   - Add a `Procfile` with:
+     ```
+     web: streamlit run new.py --server.port=$PORT
+     ```
+   - Commit `requirements.txt` and `Procfile`.
+   - Deploy using the platform's git workflow.
+
+In both cases the dataset will be read from the repo root and no further
+configuration is required.
 
 ## ⚙️ Running the Application
 
