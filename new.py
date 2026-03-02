@@ -12,7 +12,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 
 # --- PAGE CONFIGURATION ---
-st.set_page_config(page_title="Breast Cancer Prediction", page_icon="🎗️", layout="centered")
+st.set_page_config(page_title="Breast Cancer Classifier", page_icon="🎗️", layout="centered")
 
 # --- MODEL TRAINING & SCORING (Cached) ---
 @st.cache_resource
@@ -66,7 +66,7 @@ except Exception as e:
     st.stop()
 
 # --- WEBSITE FRONTEND ---
-st.title("🎗️ Breast Cancer Prediction")
+st.title("🎗️ Breast Cancer Classifier")
 st.write("Input cell nucleus measurements to predict if a tumor is Malignant or Benign.")
 
 # --- MODEL ACCURACY DASHBOARD ---
