@@ -5,6 +5,8 @@ models to classify breast tumors as **malignant** or **benign** based on cell nu
 measurements. It is intended for educational purposes and demonstrates data
 preprocessing, model training, and deployment with an interactive UI.
 
+**🔗 [Live Demo](https://breast-cancer-classifiergit-i3fqrsnjehurztzsmc6u2r.streamlit.app/)**
+
 ---
 
 ## 🚀 Project Overview
